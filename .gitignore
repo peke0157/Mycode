@@ -13,11 +13,12 @@
 *.wma
 
 # 学習済みのモデルの重みファイル（容量が大きいため）
+*.npy
 *.pth       # PyTorch
 *.h5        # TensorFlow/Keras
 *.onnx
 *.pkl       # ピックルファイル（データの一時保存など）
-*.npy
+
 
 # Windowsの代替データストリーム
 *:Zone.Identifier
