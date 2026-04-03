@@ -2,17 +2,18 @@ import gradio as gr
 import numpy as np
 import joblib
 import librosa
+from pathlib import Path
 
 
 # 予測関数
-def predict(text):
-    y, sr = librosa.load('*.wav')
+def predict(audiopath):
+    y, sr = librosa.load(audiopath)
     mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
     
     # 2次元配列を変更する処理
     mean = np.mean(mfccs, axis=1)
     std = np.std(mfccs, axis=1)
-    concatenate = np.conancatete([mean, std])
+    features = np.concatenate([mean, std])
     
     # 音楽ジャンル
     class_genru = {
@@ -22,12 +23,13 @@ def predict(text):
     scaler = joblib.load('expscaler.pkl')
     model = joblib.load('expmodel.pkl')
     
-    transform = scaler.transform()
-    logits = model.predict()
+    transform = scaler.transform([features])
+    probs = model.predict_proba([features])[0]
     
     genru = {}
+    
     for i, class_genrus in enumerate(class_genru):
-        genru[class_genru] = float(probs[0][i])
+        genru[class_genru] = float(probs[i])
         
 
     return genru
@@ -41,6 +43,6 @@ demo = gr.Interface(
     title="音楽ジャンル測定アプリ",
 )
 
-# アプリケーションの気道
+# アプリケーションの起動
 if __name__ == "__main__":
     demo.launch()
