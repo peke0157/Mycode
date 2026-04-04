@@ -3,7 +3,7 @@
 
 # ソースコード解説
 始めにテスト・学習用の音声データは「GTZAN Dataset」、「ESC-50」、「FREE BGM DOVA-SYNDROME」を使用しています。
-
+- (https://github.com/peke0157/mycode/blob/exp/plot.md)
 **app.py**を使用し、
 
 
