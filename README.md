@@ -32,3 +32,4 @@ $ python app.py
 - Ubuntu 24.04.3 LTS
 - Python 3.13.5
 - librosa 0.11.0
+- Jupyter Notebook 7.3.2
