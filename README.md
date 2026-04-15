@@ -15,9 +15,7 @@ $ python app.py
 * Running on local URL:  http://127.0.0.1:7860
 * To create a public link, set `share=True` in `launch()`.
 ```
-URLをCtrl+左クリックでアクセスします。
-URLの起動後は写真のようなアプリケーションが表示されます。
-<img width="900" height="750" src="">
+
 左画面のaudiopathにジャンル判定をする音楽ファイルを入力します。Submitをクリックすると予測結果の音楽ジャンルが出力されます。
 # 必要なソフトウェア
 - Python
