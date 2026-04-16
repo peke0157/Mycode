@@ -87,3 +87,16 @@ for audio_dir in base_dir.glob('**/*.wav'):
     np.save(save_path, mfccs)
 ```
 - save_dirで抽出した学習済みモデルの保存先ディレクトリを「expdata」にしている。librosaライブラリはmfccするときも便利で、librosaを用いることでmfccの計算が一行で行うことができる。
+### 使い方
+```
+    mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+
+```
+- 今回使っているパラメータ
+ - y: 音声時系列データ。マルチチャンネルに対応
+ - sr:番号 > 0 （スカラー） 
+ サンプリングレート
+ - n_mfcc: int > 0
+ 返却するMFCCの数
+
+librosa.display.specshow()はスペクトログラム/クロマグラム/cqtなどを表示するための関数である。これもlibrosaライブラリにあるので、スペクトログラムの表示が簡単にできる。
